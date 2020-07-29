@@ -66,10 +66,10 @@ public class Employee implements Serializable{
 	private Date dateUpdate;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	private Employee employee;
+	private Company company;
 	
 	@OneToMany(mappedBy = "employee", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Launch> launch;
+	private List<Launch> releases;
 
 	public Employee() {
 		super();
@@ -167,20 +167,20 @@ public class Employee implements Serializable{
 		this.dateUpdate = dateUpdate;
 	}
 
-	public Employee getEmployee() {
-		return employee;
+	public Company getEmployee() {
+		return company;
 	}
 
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
+	public void setEmployee(Company company) {
+		this.company = company;
 	}
 
-	public List<Launch> getLaunch() {
-		return launch;
+	public List<Launch> getReleases() {
+		return releases;
 	}
 
-	public void setLaunch(List<Launch> launch) {
-		this.launch = launch;
+	public void setReleases(List<Launch> releases) {
+		this.releases = releases;
 	}
 	
 	@PreUpdate
@@ -200,7 +200,7 @@ public class Employee implements Serializable{
 		return "Employee [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", cpf=" + cpf
 				+ ", hourValue=" + hourValue + ", amountOfHourWorked=" + amountOfHourWorked + ", amoutOfLunchTime="
 				+ amoutOfLunchTime + ", profile=" + profile + ", dateCriation=" + dateCreation + ", dateUpdate="
-				+ dateUpdate + ", employee=" + employee + ", launch=" + launch + "]";
+				+ dateUpdate + ", employee=" + company + ", launch=" + releases + "]";
 	}
 	
 	

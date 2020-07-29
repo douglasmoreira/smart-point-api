@@ -37,18 +37,18 @@ public class Company implements Serializable {
 	@Column(name = "date_update", nullable = false)
 	private Date dateUpdate;
 	
-	@OneToMany(mappedBy = "Company", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Employee> employee;
+	@OneToMany(mappedBy = "company", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Employee> employees;
 	
 	public Company() {
 		super();
 	}
 	
 	public List<Employee> getEmployee() {
-		return employee;
+		return employees;
 	}
 	public void setEmployee(List<Employee> employee) {
-		this.employee = employee;
+		this.employees = employee;
 	}	
 	public Long getId() {
 		return id;
