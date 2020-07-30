@@ -1,5 +1,5 @@
 CREATE TABLE `company` (
-	`id` bigint(20) NOT NULL,
+	`id` bigint(20) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	`cnpj` VARCHAR (255) NOT NULL,
 	`date_creation` datetime NOT NULL,
 	`date_update` datetime NOT NULL,
@@ -7,7 +7,7 @@ CREATE TABLE `company` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `employee` (
-	`id` bigint(20) NOT NULL,
+	`id` bigint(20) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	`cpf` VARCHAR (255) NOT NULL,
 	`date_creation`  datetime NOT NULL,
 	`date_update` datetime NOT NULL,
@@ -23,7 +23,7 @@ CREATE TABLE `employee` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;	
 
 CREATE TABLE `launch` (
-	`id` bigint(20) NOT NULL,
+	`id` bigint(20) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	`cnpj` VARCHAR (255) NOT NULL,
 	`description` datetime NOT NULL,
 	`date_update` datetime NOT NULL,
@@ -33,11 +33,6 @@ CREATE TABLE `launch` (
 	`employee_id` BIGINT(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Indexes for table `company`
---
-ALTER TABLE `company`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `employee`
@@ -52,25 +47,6 @@ ALTER TABLE `employee`
 ALTER TABLE `launch`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK46i4k5vl8wah7feutye9kbpi4` (`employee_id`);
-
---
--- AUTO_INCREMENT for table `empresa`
---
-ALTER TABLE `company`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `funcionario`
---
-ALTER TABLE `employee`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `lancamento`
---
-ALTER TABLE `launch`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
---
--- Constraints for dumped tables
---
 
 --
 -- Constraints for table `funcionario`
