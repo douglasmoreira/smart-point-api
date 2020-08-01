@@ -4,15 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 @Entity
@@ -28,7 +20,7 @@ public class Company implements Serializable {
 	@Column(name = "company_name", nullable = false)
 	private String companyName;
 	
-	@Column(name = "cnpj", nullable = false)
+	@Column(name = "cnpj", nullable = false, unique = true)
 	private String cnpj;
 	
 	@Column(name = "date_creation", nullable = false)
@@ -79,6 +71,18 @@ public class Company implements Serializable {
 	}
 	public void setDateUpdate(Date dateUpdate) {
 		this.dateUpdate = dateUpdate;
+	}
+
+	@PreUpdate
+	public void preUpdate() {
+		dateUpdate = new Date();
+	}
+
+	@PrePersist
+	public void prePersit() {
+		final Date atual = new Date();
+		dateCreation = atual;
+		dateUpdate = atual;
 	}
 	
 	

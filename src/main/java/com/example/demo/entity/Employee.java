@@ -43,7 +43,7 @@ public class Employee implements Serializable{
 	@Column(name = "password", nullable = false)
 	private String password;
 	
-	@Column(name = "cpf", nullable = false)
+	@Column(name = "cpf", nullable = false, unique = true)
 	private String cpf;
 	
 	@Column(name = "hour_value", nullable = true)
@@ -52,7 +52,7 @@ public class Employee implements Serializable{
 	@Column(name = "amount_of_hour_worked", nullable = true)
 	private Float amountOfHourWorked;
 	
-	@Column(name = "amount_of_lunch_time", nullable = false)
+	@Column(name = "amount_of_lunch_time", nullable = true)
 	private Float amoutOfLunchTime;
 	
 	@Enumerated(EnumType.STRING)
@@ -167,11 +167,11 @@ public class Employee implements Serializable{
 		this.dateUpdate = dateUpdate;
 	}
 
-	public Company getEmployee() {
+	public Company getCompany() {
 		return company;
 	}
 
-	public void setEmployee(Company company) {
+	public void setCompany(Company company) {
 		this.company = company;
 	}
 

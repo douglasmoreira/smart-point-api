@@ -34,10 +34,10 @@ public class Launch implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date data;
 	
-	@Column(name = "description")
+	@Column(name = "description", nullable = true)
 	private String description;
 	
-	@Column(name = "location")
+	@Column(name = "location", nullable = true)
 	private String location;
 	
 	@Column(name = "date_Creation")
